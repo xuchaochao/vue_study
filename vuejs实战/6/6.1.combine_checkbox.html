@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <input type="checkbox" v-model="checked" value="html" id="html">
+    <label for="html">HTML</label>
+    <br>
+
+    <input type="checkbox" v-model="checked" value="js" id="js">
+    <label for="js">js</label>
+    <br>
+
+    <input type="checkbox" v-model="checked" value="css" id="css">
+    <label for="css">css</label>
+    </br></br></br></br></br></br></br></br>
+
+
+
+    <p>用v-model="haha",value='ceshi1',Vue(haha='ceshi') 来绑定这个的选择状态</p>
+    <input type="checkbox" v-model="haha" value="ceshi1" id="ceshi1">
+    <label for="ceshi1">测试1</label>
+    <br>
+
+    <p>用v-model="xixi",Vue(xixi=true) 来绑定这个的选择状态</p>
+    <input type="checkbox" v-model="xixi" value="ceshi2" id="ceshi2">
+    <label for="ceshi2">测试2</label>
+    <br>
+
+    <p>选择的项是：{{checked}}</p>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            checked:['html','css'],
+            checked:true,
+            haha:'ceshi1',
+            xixi:true
+        }
+    })
+
+</script>
+
+</html>

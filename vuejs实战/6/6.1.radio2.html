@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+<input type="radio" v-model="picked" value="html" id="html">
+    <label for="html">HTML</label>
+    <br>
+    <input type="radio" v-model="picked" value="js" id="js">
+    <label for="js">JavaScript</label>
+    <br>
+    <input type="radio" v-model="picked" value="css" id="css">
+    <label for="css">CSS</label>
+    <br>
+    <p>选择的项是：{{picked}}</p>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            picked:'js'
+        }
+    })
+
+</script>
+
+</html>

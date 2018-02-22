@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <my-component></my-component>
+
+
+</div>
+
+
+
+</body>
+<script>
+
+    Vue.component("my-component",{
+        template:'<div>{{message}}</div>',
+        data:function () {
+            return{
+                message:"组件内容"
+            }
+        }
+    });
+
+    var app = new Vue({
+        el:"#app",
+
+    })
+
+
+
+</script>
+</html>

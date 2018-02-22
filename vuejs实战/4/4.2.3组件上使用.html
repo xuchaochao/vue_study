@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+
+
+<div id="app">
+<div :class="{'active':isActive}">
+<!--渲染后的结果为：<div class="active article">一些文本</div>-->
+</div>
+
+</div>
+</body>
+<script>
+    Vue.component('my-component',{
+        template:'<p class="article">一些文本</p>'
+    });
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+
+        }
+
+    })
+
+</script>
+
+</html>

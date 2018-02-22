@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--使用修饰符 .lazy 会转变为在 change 事件中同步，示例代码如下：-->
+
+    <p>.lazy:也就是失去了焦点才会改变</p><input type="text" v-model.lazy="message">
+    <p>正常</p><input type="text" v-model="message">
+    <p>{{message}}</p>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+           message:""
+        }
+    })
+</script>
+
+</html>

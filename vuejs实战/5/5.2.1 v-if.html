@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<!--v-else-if 要紧跟 v-if, v-else 要紧 Rli! v-else-if 或 v-if，-->
+<!--表达式的值为 真时 ，当前元素／组件及所 有子节点将被渲染，-->
+<!--为假时被移除。-->
+<div id="app">
+    <p v-if="status===1">当status为1的时候显示该行</p>
+    <p v-else-if="status===2">当status为2的时候显示该行</p>
+    <p v-else>不为1不为2的时候就显示这样吧</p>
+</div>
+</body>
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            status:1
+        }
+    })
+
+</script>
+
+</html>

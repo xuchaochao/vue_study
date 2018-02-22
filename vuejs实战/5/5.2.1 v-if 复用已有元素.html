@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<!--vue会尽可能的复用已有的元素而不会去重新渲染，运行本示例，在输入框中输入下内容就懂这句话的意思了。-->
+
+
+
+
+
+<div id="app">
+    <p>下面这个会复用</p>
+   <template v-if="type === 'name'">
+
+       <label>用户名:</label>
+       <input placeholder="输入用户名">
+   </template>
+    <template v-else>
+        <label>邮箱:</label>
+        <input placeholder="输入邮箱">
+    </template>
+    <button class="btn btn-success" @click="handleToggleClick">切换输入类型</button>
+</div>
+</body>
+<!--如果不想复用的话那么加个key=就好了-->
+<div id="app1">
+    <p>下面这个不会复用</p>
+    <template v-if="type === 'name'">
+
+        <label>用户名:</label>
+        <input placeholder="输入用户名" key="name-input">
+    </template>
+    <template v-else>
+        <label>邮箱:</label>
+        <input placeholder="输入邮箱" key="mail-input">
+    </template>
+    <button class="btn btn-success" @click="handleToggleClick">切换输入类型</button>
+</div>
+</body>
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            type:'name'
+        },
+        methods:{
+            handleToggleClick:function () {
+                this.type=this.type === 'name'?'mail':'name'
+            }
+        }
+    })
+
+    var app1 = new Vue({
+        el:"#app1",
+        data:{
+            type:'name'
+        },
+        methods:{
+            handleToggleClick:function () {
+                this.type=this.type === 'name'?'mail':'name'
+            }
+        }
+    })
+
+
+</script>
+
+</html>

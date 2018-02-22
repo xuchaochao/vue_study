@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <select v-model="selected">
+        <option :value="{number:123}">123</option>
+    </select>
+    {{selected.number}}
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+           selected:""
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+
+<!--我们可以传给 v-bind:class 一个对象，以动态地切换 class 。-->
+
+<div id="app">
+<div :class="{'active:isActive'}">
+</div>
+<div class="static" :class="{'active':isActive,'error':isError}">
+</div>
+    <!--这里会被渲染成<div class="static active"></div>-->
+
+</div>
+</body>
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+            isError:false
+        }
+
+    })
+
+</script>
+
+</html>

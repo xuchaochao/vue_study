@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--下面第一个message就算采用app.message="123"的方式去改变也不会改变了的，因为成为了静态内容了-->
+    <span v-once>{{message}}</span>
+    <!--下面这个则是可以改变的-->
+    <div><span>{{message}}</span>
+    </div>
+</div>
+
+
+</body>
+<script>
+var app = new Vue({
+    el:"#app",
+    data:{
+        message:"这是一段文本"
+    }
+})
+</script>
+
+</html>

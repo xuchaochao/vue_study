@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--template适用于多个元素的情况，在template元素上使用条件命令-->
+<div id="app">
+    <template v-if="status===1">
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+        <p>这是一段文本</p>
+
+    </template>
+</div>
+</body>
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            status:1
+        }
+    })
+
+</script>
+
+</html>

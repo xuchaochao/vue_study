@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<button :class="classes"></button>
+
+
+</div>
+</body>
+<!--最终会渲染成-->
+<!--<button class="btn btn-large btn-disabled"></button>-->
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            size:'large',
+            disabled:true
+        },
+        computed:{
+            classes:function () {
+                return [
+                    'btn',
+                    {
+                        ['btn-' +this.size]:this.size !== '',
+                        ['btn-disabled']:this.disabled
+
+
+
+                    }
+                ]
+            }
+        }
+
+    })
+
+</script>
+
+</html>

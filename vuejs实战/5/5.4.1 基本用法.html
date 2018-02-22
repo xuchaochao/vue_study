@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="app">
+    点击次数:{{counter}}
+    <button @click="counter++" class="btn-danger">+1</button>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            counter:0
+        }
+    })
+</script>
+
+</html>

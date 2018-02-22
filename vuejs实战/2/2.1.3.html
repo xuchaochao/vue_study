@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">{{book}}}</div>
+<div id="app_time">{{date}}</div>
+<div id="app_html">
+    <span v-html="link"></span>
+</div>
+<div id="app_caculator">
+    {{number / 10}}
+    {{isOK ? '确定':'取消'}}
+    {{text.split(',').reverse().join(',')}}
+</div>
+</body>
+<script>
+    var app_caculator = new Vue({
+        el:"#app_caculator",
+        data:{
+            number:10,
+            idOK:false,
+            text:"122"
+        }
+    })
+
+    var app_html = new Vue({
+        el:"#app_html",
+        data:{
+            link:'<a href="#">这是一个链接</a>'
+        }
+    })
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            book:"<<vue js 实战>>"
+        }
+    })
+
+    var app = new Vue({
+        el:"#app_time",
+        data:{
+            date:new Date()
+        },
+        mounted:function () {
+            var _this = this;
+            // 这样做的原因是因为this在setInterval函数中指的是setInterval函数,
+                // 而不是当前Vue的实例了.
+            this.xx = setInterval(function () {
+                _this.date = new Date();
+
+                // console.log("_this-->"+_this);
+                // console.log("this-->"+this);
+
+            }, 1000);
+
+        },
+        beforeDestroy:function () {
+            if(this.xx){
+                clearInterval(this.xx);
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<!--v-if 和 v-show的区别！！！！！！-->
+<!--简单来说，v-if 的初始化较快，但切换代价高；v-show 初始化慢，但切换成本低-->
+<!--1.共同点-->
+
+<!--都是动态显示DOM元素-->
+<!--2.区别-->
+
+<!--（1）手段：-->
+<!--v-if是动态的向DOM树内添加或者删除DOM元素；-->
+<!--v-show是通过设置DOM元素的display样式属性控制显隐；-->
+<!--（2）编译过程：-->
+<!--v-if切换有一个局部编译/卸载的过程，切换过程中合适地销毁和重建内部的事件监听和子组件；-->
+<!--v-show只是简单的基于css切换；-->
+<div id="app">
+    <p class="text-danger" v-show="status===1">当status=1的时候显示该行吧</p>
+</div>
+
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            status:1
+        }
+    })
+</script>
+
+</html>

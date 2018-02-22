@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--用v-model指令在表蛋类元素上双向绑定数据-->
+<div id="app">
+    <p>使用input:</p>
+<input type="text" v-model="message" placeholder="输入...">
+    <p>使用textarea</p>
+    <textarea type="text" v-model="message" placeholder="输入..."></textarea>
+    <p>使用@input,这个能实时更新:</p>
+    <input type="text" @input="handleInput" placeholder="输入...">
+
+    <p>输入的内容是:{{message}}</p>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:""
+        },
+        methods:{
+            handleInput:function (e) {
+                this.message = e.target.value;
+            }
+        }
+    })
+
+</script>
+
+</html>

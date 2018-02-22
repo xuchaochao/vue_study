@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+
+    <my-componesnt></my-componesnt>
+
+
+</div>
+
+</body>
+<script>
+
+
+
+var Child = {
+    template:'<div>这里是局部组件的内容</div>'
+}
+
+    var app = new Vue({
+        el:"#app",
+        components:{
+           "my-component":Child
+        }
+
+    })
+
+</script>
+</html>

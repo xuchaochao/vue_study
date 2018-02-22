@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<div id="app">
+    <ul>
+        <p>筛选：</p>
+        <template v-for="book in filterBooks">
+            <li>书名：{{book.name}}</li>
+            <li>作者：{{book.author}}</li>
+        </template>
+        </hr>
+        <p>排序：</p>
+        <template v-for="book in sortBooks">
+            <li>书名：{{book.name}}</li>
+            <li>作者：{{book.author}}</li>
+        </template>
+    </ul>
+</div>
+</body>
+
+<script>
+    // 用计算属性不会改变原来的数组，但是会创建一个副本
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                {name:"第1本书啦1",
+                    author:"第1个作者111"},
+                {name:"第2本书啦22",
+                    author:"第2个作者2222"},
+                {name:"第3本书啦333",
+                    author:"第3个作者33333"},
+
+            ]
+        },
+        computed:{
+            filterBooks:function () {
+                return this.books.filter(function (book) {
+                    return book.name.match(/第1/);
+
+                })
+            },
+            sortBooks:function () {
+                return this.books.sort(function (a,b) {
+                    return a.name.length < b.name.length;
+                })
+            }
+        }
+    });
+</script>
+
+</html>

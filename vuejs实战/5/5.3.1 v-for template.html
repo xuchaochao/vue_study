@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="app">
+   <ul>
+<template v-for="book in books">
+    <li>书名:{{book.name}}</li>
+    <li>作者:{{book.author}}</li>
+
+</template>
+   </ul>
+</div>
+
+
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                {name:"第1本书啦",
+                author:"第1个作者"},
+                {name:"第1本书啦",
+                    author:"第2个作者"},
+                {name:"第2本书啦",
+                    author:"第3个作者"},
+
+            ]
+        }
+    })
+
+
+</script>
+
+</html>

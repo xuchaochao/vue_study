@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="app">
+<!--使用修饰符.number 可以将输入转换为 Number 类型，否则虽然你输入的是数字，但它的类型-->
+<!--其实是 String，比如在数字输入框时会比较有用-->
+    <p>.number:那么就是数字了</p><input type="number" v-model.number="message">
+    <p>没有.number,其实还是文字</p><input type="number" v-model="message">
+    <p>{{typeof message}}</p>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+           message:123
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<a v-bind:href="url">连接</a>
+<img v-bind:src="imgUrl">
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            url:"http://www.baidu.com",
+            imgUrl:'https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/icons_0c37e9b.png'
+
+
+        }
+
+    })
+    // v-bind 的基本用途是动态更新 HTML 元素上的属性，比如 id 、 class 等，例如下面几个示例：
+</script>
+</html>

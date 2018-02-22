@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<!--复选框单独使用的时候只要用v-model来绑定一个布尔值就好了.-->
+<!--但是在多个使用的时候就需要v-moeld和value一起了.-->
+<div id="app">
+<input type="checkbox" v-model="checked" id="checked">
+    <label for="checked">选择状态:{{checked}}</label>
+
+    <p for="checked">选择状态:{{checked}}</p>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            checked:false
+        }
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<div id="v-for-object">
+
+<div>
+<ul class="text-danger">
+    <li v-for="value in object">
+        {{ value }}
+    </li>
+</ul>
+
+</div>
+
+<div class="text-success" v-for="(value, key) in object">
+    {{ key }} --- {{ value }}
+</div>
+
+<div class="text-danger" v-for="(zhi, jian, dijige) in object">
+    {{ dijige }} --- {{ jian }} --- {{ zhi }}
+</div>
+
+    <div class="text-danger" v-for="(value, key, index) in object">
+        {{ index }} --- {{ key }} --- {{ value }}
+    </div>
+
+</div>
+
+<!--遍历对象属性时，有两个可选参数，分别是键名和索引：-->
+<!--vue中写死了顺序的value,key,index-->
+
+</body>
+
+<script>
+
+   var app =  new Vue({
+        el: '#v-for-object',
+        data: {
+            object: {
+                firstName: 'John',
+                lastName: 'Doe',
+                age: 30
+            }
+        }
+    })
+
+
+</script>
+
+</html>

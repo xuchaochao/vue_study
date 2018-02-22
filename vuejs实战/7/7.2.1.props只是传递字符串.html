@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <my-component message="[1,2,3]"></my-component>
+    <my-component :message="[1,2,3]"></my-component>
+</div>
+
+
+
+</body>
+<script>
+
+    Vue.component("my-component",{
+        props:['message'],
+        template:'<div>{{message.length}}</div>'
+    });
+
+    var app = new Vue({
+        el:"#app",
+
+    })
+
+
+
+</script>
+</html>

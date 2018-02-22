@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+<div id="app">
+    <ol class="text-danger">
+        <li  v-for="book in books">{{book.name}}</li>
+    </ol>
+</div>
+
+下面几个方法会改变元素组，使用方法:app.books.push({name:'第四本书',author:'xcc'})
+<!--push() 增加-->
+<!--pop() 去掉最后一个-->
+<!--shift()-->
+<!--unshift（）-->
+<!--splice()-->
+<!--sort()-->
+<!--reverse() 倒序排列-->
+
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                {name:"第1本书啦"},
+                {name:"第2本书啦"},
+                {name:"第3本书啦"},
+
+            ]
+        }
+    });
+</script>
+
+</html>

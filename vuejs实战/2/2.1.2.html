@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>这个是</p>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{a:2},
+        created:function () {
+            console.log(this.a);
+        },
+        mounted:function () {
+            console.log(this.$el);
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="app">
+   <ul>
+<template  v-for="book in books">
+    <li>书名:{{book.name}}</li>
+    <li>作者:{{book.author}}</li>
+
+</template>
+   </ul>
+</div>
+
+
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                {name:"第1本书啦",
+                author:"第1个作者"},
+                {name:"第2本书啦",
+                    author:"第2个作者"},
+                {name:"第3本书啦",
+                    author:"第3个作者"},
+
+            ]
+        }
+    });
+
+    // 下面这两行可以在控制器台使用：
+    // app.books = app.books.filter(function (item) {return item.name.match(/1/)})
+
+// 下面的方法不会改变原数组，因为直接返回一个新的数组了：
+//     filter()
+//     concat()
+//     slice()
+
+// 欲通过索引来直接设置是不行的，例如app.books[3]='ssss'
+//     通过改变数组的长度也是不行的,例如app.books.length=1;
+// 但是可以通过set方法来设置:
+//     Vue.set(app.books,2,{name:'这个是新的第三本书',author:'这个是新的第三本书的作者'});
+//     也可以通过splice()
+//     app.books.splice(2,1,{name:'这个是新的第三本书',author:'这个是新的第三本书的作者'});
+
+</script>
+
+</html>

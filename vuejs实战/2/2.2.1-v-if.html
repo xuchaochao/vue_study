@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<p v-if="show">显示这段文本</p>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{show:true}
+
+    })
+    // 当数据 show 的值为 true 时， p 元素会被插入，为 false 时则会被移除。
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div id="app" v-cloak>
+    {{message}}
+</div>
+</body>
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:"这是一段文本"
+        }
+    })
+
+// 然后往css中加入 [v-cloak]{display:none;} 就可以解决因为网速慢，
+    // Vue.js文件没有加载完而导致会显示{{message}}字样的问题。
+</script>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="app">
+    <ol class="text-danger">
+        <li  v-for="book in books">{{book.name}}</li>
+    </ol>
+</div>
+
+<!--v- for 的表达式支持一个可选参数作为当前项的索引 -->
+<div id="app1">
+    <ol class="text-danger">
+        <li v-for="(book,dijige) in books">{{dijige}} - {{book.name}}</li>
+    </ol>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                {name:"第1本书啦"},
+                {name:"第2本书啦"},
+                {name:"第3本书啦"},
+
+            ]
+        }
+    })
+
+
+    var app1 = new Vue({
+        el:"#app1",
+        data:{
+            books:[
+                {name:"第1本书啦"},
+                {name:"第2本书啦"},
+                {name:"第3本书啦"},
+
+            ]
+        }
+    })
+
+</script>
+
+</html>

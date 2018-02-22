@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<p v-if="show">显示这段文本</p>
+    <button v-on:click="handleClose">点击隐藏,用vue中的methods</button>
+    <button v-on:click="show = false">点击隐藏,用内联语句</button>
+    <button v-on:click="show = true">点击显示</button>
+
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{show:true,
+        },
+        methods:{
+            handleClose:function () {
+                // this.show = false;
+                this.close();
+            },
+            close:function () {
+                this.show = false;
+            }
+        }
+
+    })
+    // 另一个非常重要的指令就是 v-on，它用来绑定事件监听器
+    //在 button 按钮上，使用 v-on:click 给该元素绑定了一个点击事件，在普通元素上， v-on 可以监
+    // 昕原生的 DOM 事件，除了 click 外，还有 dblclick、 keyup, mousemove 等。
+</script>
+</html>

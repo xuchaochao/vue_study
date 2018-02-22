@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!--<option＞是备选工页，如果含有 value 属性 ， v-model 就会优先匹配 value 的值 ： 如果没有 ， 就会-->
+<!--直接匹配＜option＞的 text，比如选中第二项时 ， selected 的值是 js ， 而不是 JavaScript。-->
+<div id="app">
+<select v-model="selected">
+    <option value="ht">html</option>
+    <option value="js">JavaScript</option>
+    <option>css</option>
+</select>
+
+    <p>选择的项是：{{selected}}</p>
+</div>
+
+</body>
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            selected:"html"
+        }
+    })
+
+</script>
+
+</html>

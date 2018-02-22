@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="app">
+    <a href="http://www.baidu.com" @click.once="handleClick('禁止111打开',$event)">
+
+
+        打开链接
+    </a>
+</div>
+</body>
+
+
+
+<script>
+
+    var app = new Vue({
+        el:"#app",
+        methods:{
+            handleClick:function (message,event) {
+                event.preventDefault();
+                window.alert(message);
+            }
+        }
+    })
+</script>
+
+</html>

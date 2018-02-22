@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+   {{now_methods()}}
+{{now_computed}}
+</div>
+
+</body>
+<script>
+
+
+    var app = new Vue({
+        el:"#app",
+        methods: {
+            now_methods: function () {
+                return Date.now()
+            }
+        },
+        computed:{
+            now_computed:function () {
+                return Date.now();
+            }
+        }
+    });
+    // 两种方式在这种情况下的结果是一样
+    // 写法上的区别是computed计算属性的方式在用属性时不用加(),而methods方式在使用时要像方法一样去用，必须加()
+    // 两种方式在缓存上也大有不同，利用computed计算属性是将 content与message绑定，只有当message发生变化时才会触发content，而methods方式是每次进入页面都要执行该方法，但是在利用实时信息时，比如显示当前进入页面的时间，必须用methods方式
+    // methods: {
+    //     now: function () {
+    //         return Date.now()
+    //     }
+    // }
+    // 如果用computed计算属性的话，每次进入页面将一直沿用第一次的信息，不会再触发now。
+
+</script>
+</html>

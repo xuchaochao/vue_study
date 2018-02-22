@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example" v-html="a">
+    {{ a }}
+</div>
+
+</body>
+
+<script>
+    // var data = {a:1};
+    var data = {a:"<p style='color: red'><span>v-html指令</span></p>"};
+
+   // var data={
+   //      newTodoText: '',
+   //          visitCount: 0,
+   //          hideCompletedTodos: false,
+   //          todos: [],
+   //          error: null
+   //  }
+
+
+
+    var vm = new Vue({
+        el:"#example",
+        data:data,
+        beforeCreate:function () {
+            console.log("beforeCreate");
+        },
+        created:function () {
+            console.log("created ---> a is " + this.a);
+        }
+    });
+
+    console.log(vm.$data === data);
+    console.log(vm.$el === document.getElementById("example"));
+    vm.$watch("a", function (newValue, oldValue) {
+        console.log("新的值为"+newValue+",旧的值为"+oldValue);
+    })
+
+
+    // console.log(vm.a===data.a)
+
+</script>
+
+</html>

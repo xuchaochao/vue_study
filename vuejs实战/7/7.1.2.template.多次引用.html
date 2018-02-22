@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
+
+
+
+</div>
+
+
+
+</body>
+<script>
+    // // 错误的写法
+    // var data = {
+    //     counter:0
+    // };
+    //
+    //
+    // Vue.component("my-component",{
+    //     template:'<button v-on:click="counter++">{{counter}}</button>',
+    //     data:function () {
+    //         return data;
+    //     }
+    // });
+    //
+    // var app = new Vue({
+    //     el:"#app",
+    //
+    // })
+
+    // 正确的写法
+
+    Vue.component("my-component",{
+        template:'<button v-on:click="counter++">{{counter}}</button>',
+        data:function () {
+            return {
+                counter:0
+            }
+        }
+    })
+
+    var app = new Vue(
+        {
+            el:"#app",
+        }
+    )
+
+</script>
+</html>

@@ -15,25 +15,20 @@
 <body>
 
 <div id="app">
+    <child-component ></child-component>
 
-    <child-component :count="1"></child-component>
 
 </div>
 
 </body>
 
 <script>
-    Vue.component("child-component",{
-        name:"child-component",
-        props:{
-            count:{
-                type:Number,
-                default:1
-            }
-        },
-        template: '<div class="child">' +
-        '<child-component :count="count + 1" v-if="count < 100"></child-component>' +
-        '</div>',
+    Vue.component('child-component',function (resolve,reject) {
+        window.setTimeout(function () {
+            resolve({
+                template:'<div>我是异步渲染的</div>'
+            })
+        },2000);
     });
 
     var app = new Vue({

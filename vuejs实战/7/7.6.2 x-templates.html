@@ -15,30 +15,25 @@
 <body>
 
 <div id="app">
-
-    <child-component :count="1"></child-component>
-
+    <my-component></my-component>
+<script type="text/x-template" id="my-component">
+<div>这是组件的内容</div>
+</script>
 </div>
+
 
 </body>
 
 <script>
-    Vue.component("child-component",{
-        name:"child-component",
-        props:{
-            count:{
-                type:Number,
-                default:1
-            }
-        },
-        template: '<div class="child">' +
-        '<child-component :count="count + 1" v-if="count < 100"></child-component>' +
-        '</div>',
+
+    Vue.component('my-component',{
+        template:"#my-component"
     });
 
     var app = new Vue({
         el:"#app",
     });
+
 
 </script>
 </html>

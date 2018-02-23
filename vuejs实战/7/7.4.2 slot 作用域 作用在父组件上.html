@@ -1,43 +1,38 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- 先引入 Vue -->
     <script src="../js/vue.js"></script>
-
     <script src="../js/jquery.min.js"></script>
     <link href="../js/bootstrap.min.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js"></script>
-
 </head>
+
+
 <body>
 
 <div id="app">
-<input type="text" v-model="parentMessage">
-    <my-component :message="parentMessage"></my-component>
-
-
+        <child-component v-show="showChild"></child-component>
 </div>
 
-
-
 </body>
+
 <script>
 
-    Vue.component("my-component",{
-        props:['message'],
-        template:'<div>{{message}}</div>'
+
+    Vue.component("child-component",{
+        template:'<div>子组件</div>',
     });
 
     var app = new Vue({
         el:"#app",
         data:{
-            parentMessage:""
+            showChild:true
         }
-
-    })
-
-
+    });
 
 </script>
 </html>

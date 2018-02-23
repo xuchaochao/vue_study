@@ -1,48 +1,52 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- 先引入 Vue -->
     <script src="../js/vue.js"></script>
-
     <script src="../js/jquery.min.js"></script>
     <link href="../js/bootstrap.min.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js"></script>
-
 </head>
+
+
 <body>
 
 <div id="app">
-    <input type="text" v-model="initCount">
-
-    <my-component :init-count="1"></my-component>
-    <my-component :init-count="initCount"></my-component>
+    <p>总数:{{total}}</p>
+    <my-component @input="handleGetTotal"></my-component>
 </div>
 
-
-
 </body>
-<script>
 
+<script>
     Vue.component("my-component",{
-        props:['initCount'],
-        template:'<div>{{count}}</div>',
+        template:'<button @click="handleClick">+1</button>',
         data:function () {
             return {
-                count:this.initCount+1
+                counter:0
             }
+        },
+        methods:{
+            handleClick:function () {
+                this.counter++;
+                this.$emit('input',this.counter);
+            },
         }
     });
 
     var app = new Vue({
         el:"#app",
         data:{
-            initCount:"2"
+            total:0
+        },
+        methods:{
+            handleGetTotal:function (total) {
+                this.total = total;
+            }
         }
-
     })
-
-
-
 </script>
 </html>

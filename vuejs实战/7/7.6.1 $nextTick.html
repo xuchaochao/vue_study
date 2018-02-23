@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<div id="app">
+<div id="div" v-if="showDiv">这是一段文本</div>
+    <button  @click="getText">获取div的内容</button>
+
+</div>
+
+</body>
+
+<script>
+
+
+    // var app = new Vue({
+    //     el:"#app",
+    //     data:{
+    //         showDiv:false
+    //     },
+    //     methods:{
+    //         getText:function () {
+    //             this.showDiv = true;
+    //             var text = document.getElementById("div").innerHTML;
+    //             console.log(text);
+    //         }
+    //     }
+    // });
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            showDiv:false
+        },
+        methods:{
+            getText:function () {
+                this.showDiv = true;
+                this.$nextTick(function () {
+                    var text = document.getElementById("div").innerHTML;
+                    console.log(text);
+                });
+
+            }
+        }
+    });
+
+
+</script>
+</html>

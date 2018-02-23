@@ -1,43 +1,44 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- 先引入 Vue -->
     <script src="../js/vue.js"></script>
-
     <script src="../js/jquery.min.js"></script>
     <link href="../js/bootstrap.min.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js"></script>
-
 </head>
+
+
 <body>
 
 <div id="app">
-<input type="text" v-model="parentMessage">
-    <my-component :message="parentMessage"></my-component>
 
+    <child-component :count="1"></child-component>
 
 </div>
 
-
-
 </body>
-<script>
 
-    Vue.component("my-component",{
-        props:['message'],
-        template:'<div>{{message}}</div>'
+<script>
+    Vue.component("child-component",{
+        name:"child-component",
+        props:{
+            count:{
+                type:Number,
+                default:1
+            }
+        },
+        template: '<div class="child">' +
+        '<child-component :count="count + 1" v-if="count < 100"></child-component>' +
+        '</div>',
     });
 
     var app = new Vue({
         el:"#app",
-        data:{
-            parentMessage:""
-        }
-
-    })
-
-
+    });
 
 </script>
 </html>

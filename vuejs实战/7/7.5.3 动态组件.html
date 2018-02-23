@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<div id="app">
+    <button class="btn-info" @click="handleChangeView('A')"></button>
+    <button class="btn-info" @click="handleChangeView('B')"></button>
+    <button class="btn-info" @click="handleChangeView('C')"></button>
+<component :is="currentView"></component>
+
+
+</div>
+
+</body>
+
+<script>
+    var app = new Vue({
+        el:"#app",
+        components:{
+            comA:{
+                template:'<div>组件A</div>'
+            },
+            comB:{
+                template:'<div>组件B</div>'
+            },
+            comC:{
+                template:'<div>组件C</div>'
+            }
+        },
+        data:{
+            currentView:'comA'
+        },
+        methods:{
+            handleChangeView:function (component) {
+                console.log(component);
+                this.currentView = 'com' + component;
+            }
+        }
+    });
+
+</script>
+</html>

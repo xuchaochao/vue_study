@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<div id="app">
+    {{message}}
+    <component-a></component-a>
+</div>
+
+</body>
+
+<script>
+    var bus = new Vue();
+
+    Vue.component("component-a",{
+        template:'<button @click="handleEvent">传递事件</button>',
+        methods:{
+            handleEvent:function(){
+                bus.$emit("on-message","来自组件component-a的内容");
+            }
+        }
+    });
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:""
+        },
+        mounted:function () {
+            var _this = this;
+            bus.$on('on-message',function (msg) {
+                _this.message = msg;
+            })
+        }
+    })
+</script>
+</html>

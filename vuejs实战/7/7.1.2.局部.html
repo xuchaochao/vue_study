@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
 
-    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
-
 <div id="app">
-
-    <my-componesnt></my-componesnt>
-
-
+    <my-component></my-component>
 </div>
 
 </body>
@@ -28,7 +28,9 @@ var Child = {
     var app = new Vue({
         el:"#app",
         components:{
-           "my-component":Child
+           "my-component":{
+               template:'<div>这里是局2323部组件的内容</div>'
+           }
         }
 
     })

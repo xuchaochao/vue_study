@@ -1,43 +1,43 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <!-- 先引入 Vue -->
     <script src="../js/vue.js"></script>
-
     <script src="../js/jquery.min.js"></script>
     <link href="../js/bootstrap.min.css" rel="stylesheet">
     <script src="../js/bootstrap.min.js"></script>
-
 </head>
+
+
 <body>
 
 <div id="app">
-<input type="text" v-model="parentMessage">
-    <my-component :message="parentMessage"></my-component>
+        <child-component>
+            <p>分发的内容</p>
+            <p>更多的分发的内容</p>
+        </child-component>
 
+    <child-component>
+
+    </child-component>
 
 </div>
 
-
-
 </body>
+
 <script>
 
-    Vue.component("my-component",{
-        props:['message'],
-        template:'<div>{{message}}</div>'
+
+    Vue.component("child-component",{
+        template:'<div><slot><p>如果父组件么有插入内容，那么我将作为默认出现</p></slot></div>',
     });
 
     var app = new Vue({
         el:"#app",
-        data:{
-            parentMessage:""
-        }
-
-    })
-
-
+    });
 
 </script>
 </html>

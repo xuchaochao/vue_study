@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<div id="app">
+    <child-component>
+        <h2 slot="header">标题</h2>
+        <p>正文内容</p>
+        <p>更多的正文内容</p>
+        <div slot="footer">底部信息</div>
+    </child-component>
+
+</div>
+
+</body>
+
+<script>
+    Vue.component("child-component",{
+        template: '<div class="container">' +
+        '<div class="header">' +
+        '<slot name="header"></slot>' +
+        '</div>' +
+        '<div class="main">' +
+        '<slot></slot>' +
+        '</div>' +
+        '<div class="footer">' +
+        '<slot name="footer"></slot>' +
+        '</div>' +
+        '</div>',
+        mounted:function () {
+
+            var header = this.$slots.header;
+            var main = this.$slots.default;
+            var footer = this.$slots.footer;
+
+            console.log("开始打印了");
+            console.log(footer);
+            console.log(footer[0].elm.innerHTML);
+
+        }
+    });
+
+    var app = new Vue({
+        el:"#app",
+    });
+
+</script>
+</html>

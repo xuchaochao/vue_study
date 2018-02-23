@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<div id="app">
+    <button @click="handleRef">通过ref获取子组件实例</button>
+    <component-a ref="comA"></component-a>
+</div>
+
+</body>
+
+<script>
+
+    // $refs只有在组件渲染完成后才填充，并且它是非响应式的。
+    // 它仅仅作为一个直接访问子组件的应急方案，应当避免在模板或计算属性中使用$refs
+
+    Vue.component("component-a",{
+        template:'<div>子组件</div>',
+        data:function () {
+            return {
+                message:"子组件内容"
+            }
+        }
+    });
+
+    var app = new Vue({
+        el:"#app",
+        methods:{
+            handleRef:function () {
+                var msg = this.$refs.comA.message;
+                console.log(msg);
+            }
+        }
+    });
+
+</script>
+</html>

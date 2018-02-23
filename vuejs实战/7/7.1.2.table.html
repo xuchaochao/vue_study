@@ -2,38 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- 先引入 Vue -->
+    <script src="../js/vue.js"></script>
 
-    <title>Title</title>
+    <script src="../js/jquery.min.js"></script>
+    <link href="../js/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+
 </head>
 <body>
-
 <div id="app">
 <table>
-
     <tbody is="my-component"></tbody>
 </table>
-
-
-
-
 </div>
-
-
-
 </body>
 <script>
-
     Vue.component("my-component",{
         template:'<div>这里是组件的内容</div>'
     });
 
     var app = new Vue({
         el:"#app",
-
     })
-
-
-
 </script>
 </html>
